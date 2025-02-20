@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "9029f48a-46ba-45a5-9f9b-ab3faa4e0737",
+		"name": "7-month 4-lesson uyga_vazifa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39881499"
+	},
+	"item": [
+		{
+			"name": "create_teacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\": \"Musinjon\",\r\n    \"phone\": \"+998993031633\",\r\n    \"email\": \"musinjon01@gmail.com\",\r\n    \"subjects\": [\r\n        \"Blockchain texnologiyasi va uning dasturlashdagi o'rni\",\r\n        \"Machine Learning (Mashinasozlik o'rganish) va sun'iy intellekt\",\r\n        \"Asinxron dasturlash va Event Loop mexanizmi\",\r\n        \"Big Data (Katta ma'lumotlar) va ularni ishlash usullari\",\r\n        \"Web soketlari yordamida real vaqtli ilovalar yaratish\",\r\n        \"Agile metodologiyasi: Dasturiy ta'minotni ishlab chiqish jarayoni\"\r\n    ],\r\n    \"salary\": 6500000,\r\n    \"experienceYears\": 5,\r\n    \"status\": \"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/teachers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"teachers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_course",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"FN4\",\r\n    \"description\": \"JavaScript da ishlash\",\r\n    \"price\": 825000,\r\n    \"duration\": 8,\r\n    \"teacherId\": \"67b745a17e2fa6fc9ded12c3\",\r\n    \"maxStudents\": 25,\r\n    \"startDate\": 17400696504787\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
