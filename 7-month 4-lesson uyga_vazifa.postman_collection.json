@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"fullName\": \"Musinjon\",\r\n    \"phone\": \"+998993031633\",\r\n    \"email\": \"musinjon01@gmail.com\",\r\n    \"subjects\": [\r\n        \"Blockchain texnologiyasi va uning dasturlashdagi o'rni\",\r\n        \"Machine Learning (Mashinasozlik o'rganish) va sun'iy intellekt\",\r\n        \"Asinxron dasturlash va Event Loop mexanizmi\",\r\n        \"Big Data (Katta ma'lumotlar) va ularni ishlash usullari\",\r\n        \"Web soketlari yordamida real vaqtli ilovalar yaratish\",\r\n        \"Agile metodologiyasi: Dasturiy ta'minotni ishlab chiqish jarayoni\"\r\n    ],\r\n    \"salary\": 6500000,\r\n    \"experienceYears\": 5,\r\n    \"status\": \"active\"\r\n}",
+					"raw": "{\r\n    \"fullName\": \"Kosimjon\",\r\n    \"phone\": \"+998993231633\",\r\n    \"email\": \"kosimjon01@gmail.com\",\r\n    \"subjects\": [\r\n        \"Blockchain texnologiyasi va uning dasturlashdagi o'rni\",\r\n        \"Machine Learning (Mashinasozlik o'rganish) va sun'iy intellekt\",\r\n        \"Asinxron dasturlash va Event Loop mexanizmi\",\r\n        \"Big Data (Katta ma'lumotlar) va ularni ishlash usullari\",\r\n        \"Web soketlari yordamida real vaqtli ilovalar yaratish\",\r\n        \"Agile metodologiyasi: Dasturiy ta'minotni ishlab chiqish jarayoni\"\r\n    ],\r\n    \"salary\": 1500000,\r\n    \"experienceYears\": 2,\r\n    \"status\": \"active\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"FN4\",\r\n    \"description\": \"JavaScript da ishlash\",\r\n    \"price\": 825000,\r\n    \"duration\": 8,\r\n    \"teacherId\": \"67b745a17e2fa6fc9ded12c3\",\r\n    \"maxStudents\": 25,\r\n    \"startDate\": 17400696504787\r\n}",
+					"raw": "{\r\n    \"name\": \"Python\",\r\n    \"description\": \"Python da ishlash\",\r\n    \"price\": 725000,\r\n    \"duration\": 7,\r\n    \"teacherId\": \"67b75d5d847b71c3d9ae0039\",\r\n    \"maxStudents\": 15,\r\n    \"startDate\": 1820244580849\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -59,6 +59,93 @@
 					"path": [
 						"api",
 						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"FN4\",\r\n    \"courseId\": \"67b9baf1331f8d456281ad2b\",\r\n    \"teacherId\": \"67b745a17e2fa6fc9ded12c3\",\r\n    \"schedule\": {\r\n        \"days\": [\r\n            \"monday\",\r\n            \"wednesday\",\r\n            \"friday\"\r\n        ],\r\n        \"startTime\": \"18:00\",\r\n        \"endTime\": \"20:00\"\r\n    },\r\n    \"maxStudents\": 25,\r\n    \"startDate\": 1840238541827,\r\n    \"endDate\": 1940238541827,\r\n    \"students\": [\r\n        \"67bab55e6e7c9d729276e237\"\r\n    ],\r\n    \"status\": \"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\": \"Muhammadamin Ergashev Raimjon og'li\",\r\n    \"phone\": \"+998993031637\",\r\n    \"email\": \"muhammadamin09@gmail.com\",\r\n    \"birthDate\": 1751238541827,\r\n    \"courses\": [\r\n        \"67bab43a6e7c9d729276e22f\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\": \"67bab5ab6e7c9d729276e239\",\r\n    \"courseId\": \"67bab43a6e7c9d729276e22f\",\r\n    \"amount\": 825000,\r\n    \"paymentType\": \"card\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"payments"
 					]
 				}
 			},

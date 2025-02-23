@@ -1,35 +1,28 @@
 import {
   IsArray,
+  IsEmail,
+  IsInt,
   IsNotEmpty,
-  IsNumber,
   IsPhoneNumber,
   IsString,
-  Min,
-  MinLength,
 } from 'class-validator';
 
-class CreateTeacherDto {
+class CreateStudentDto {
   @IsString()
-  @MinLength(5)
   @IsNotEmpty()
   fullName: string;
   @IsPhoneNumber('UZ')
   @IsNotEmpty()
   phone: string;
-  @IsString()
+  @IsEmail()
   @IsNotEmpty()
   email: string;
+  @IsInt()
+  @IsNotEmpty()
+  birthDate: number;
   @IsArray()
-  @IsString({ each: true })
   @IsNotEmpty()
-  subjects: string[];
-  @IsNumber()
-  @IsNotEmpty()
-  salary: number;
-  @IsNumber()
-  @IsNotEmpty()
-  @Min(3)
-  experienceYears: number;
+  courses: string[]; // kurslar ID lari
   status: 'active' | 'inactive';
 }
-export default CreateTeacherDto;
+export default CreateStudentDto;

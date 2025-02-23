@@ -10,6 +10,10 @@ export class Course {
   price: number;
   @Prop({ required: true })
   duration: number; // oylarda
+  @Prop({ required: true })
+  maxStudents: number;
+  @Prop({ required: true })
+  startDate: Date;
   @Prop()
   status: 'active' | 'inactive';
   //timestamp createdAt va updateAt qilganligi uchun ularni yozmadim

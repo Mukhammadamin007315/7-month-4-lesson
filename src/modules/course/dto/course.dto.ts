@@ -1,5 +1,6 @@
 import {
-  IsIn,
+  IsInt,
+  IsMongoId,
   IsNotEmpty,
   IsNumber,
   IsString,
@@ -23,7 +24,12 @@ class CreateCourseDto {
   @IsNumber()
   @IsNotEmpty()
   duration: number; //oylarda
-
+  @IsNumber()
+  @IsNotEmpty()
+  maxStudents: number;
+  @IsInt()
+  @IsNotEmpty()
+  startDate: number;
   status: 'active' | 'inactive';
 }
 export default CreateCourseDto;

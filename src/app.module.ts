@@ -5,8 +5,14 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import TeacherModule from './modules/teachers/teacher.module';
 import CourseModule from './modules/course/course.module';
+import GroupModule from './modules/group/group.module';
+import StudentModule from './modules/student/student.module';
+import PaymentModule from './modules/payment/payment.module';
 @Module({
   imports: [
+    PaymentModule,
+    StudentModule,
+    GroupModule,
     TeacherModule,
     CourseModule,
     ConfigModule.forRoot({
