@@ -10,12 +10,6 @@ class PaymentService {
     @InjectModel(Payment.name) private readonly paymentModel: Model<Payment>,
   ) {}
   async addPayment(body: CreatePaymentDto) {
-    const findPayment = await this.paymentModel.findOne({
-      studentId: body.studentId,
-    });
-    if (findPayment?.status === 'completed') {
-      throw new BadRequestException('payment already been paid');
-    }
     const data = await this.paymentModel.create({
       ...body,
       status: 'completed',

@@ -1,4 +1,11 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+} from '@nestjs/common';
 import CreateTeacherDto from './dto/teacher.dto';
 import TeachersService from './teacher.service';
 
@@ -14,10 +21,21 @@ class TeachersController {
       message: 'Oqituvchi muvaffaqiyatli yaratildi',
     };
   }
-
   @Get('teachers/:teacherId/courses')
-  async getTeacherById(@Param('teacherId') teacherId: any) {
-    return;
+  async getTeacherCoursesById(@Param('teacherId') teacherId: any) {
+    try {
+      const { courses, total } =
+        await this.teacherService.getTeacherCoursesById(teacherId);
+      return {
+        status: true,
+        data: {
+          courses,
+          total,
+        },
+      };
+    } catch ({ message }) {
+      throw new BadRequestException(message);
+    }
   }
 }
 export default TeachersController;

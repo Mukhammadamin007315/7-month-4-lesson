@@ -10,6 +10,7 @@ import PaymentService from './payment.service';
   ],
   controllers: [PaymentController],
   providers: [PaymentService],
+  exports: [MongooseModule],
 })
 class PaymentModule {}
 

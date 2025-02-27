@@ -1,11 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import mongoose from 'mongoose';
 
 @Schema({ versionKey: false, timestamps: true })
 export class Payment {
   @Prop({ required: true })
-  studentId: string;
+  studentId: mongoose.Schema.Types.ObjectId;
   @Prop({ required: true })
-  courseId: string;
+  courseId: mongoose.Schema.Types.ObjectId;
   @Prop({ required: true, min: 0, default: 0 })
   amount: number;
   @Prop({ required: true })

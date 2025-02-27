@@ -1,13 +1,15 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Teacher } from './models/teacher.model';
-import { Model } from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 import CreateTeacherDto from './dto/teacher.dto';
+import { Group } from '../group/models/group.model';
 
 @Injectable()
 class TeachersService {
   constructor(
     @InjectModel(Teacher.name) private readonly teacherModel: Model<Teacher>,
+    @InjectModel(Group.name) private readonly groupModel: Model<Group>,
   ) {}
   async addTeacher(body: CreateTeacherDto) {
     const findTeacher = await this.teacherModel.findOne({
@@ -19,7 +21,10 @@ class TeachersService {
     const createTeacher = await this.teacherModel.create(body);
     return createTeacher;
   }
-  async getTeacherById(teacherId: any) {}
+  async getTeacherCoursesById(teacherId: any) {
+    const courses = await this.groupModel.find({ teacherId });
+    const total = courses.length;
+    return { courses, total };
+  }
 }
-
 export default TeachersService;

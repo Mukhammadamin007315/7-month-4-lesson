@@ -17,5 +17,21 @@ class GroupsService {
     const data = await this.groupModel.create(body);
     return data;
   }
+  async addStudentToGroup(studentId: string, groupId: string) {
+    const findStudentToGroup = await this.groupModel.findOne({
+      students: studentId,
+    });
+    if (findStudentToGroup) {
+      throw new BadRequestException('student already been existed');
+    }
+    const findGroupAndUpdate = await this.groupModel.findByIdAndUpdate(
+      groupId,
+      {
+        $push: { students: studentId },
+      },
+      { returnDocument: 'after' },
+    );
+    return findGroupAndUpdate;
+  }
 }
 export default GroupsService;
